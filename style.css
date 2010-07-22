@@ -1,0 +1,32 @@
+* {
+	font-family: sans-serif;	
+}
+
+.syntaxhighlighter .plain a{
+		color: blue !important;
+}
+
+#sqlnavheader{
+	height: 60px;	
+}
+
+#sqlnavsidebar {
+	padding-left: 20px;
+	width: 350px;	
+	
+}
+
+#sqlnavsearch{
+	
+	text-align: center;
+	padding: 5px;
+	border: solid thin red;
+	background-color:silver;
+}
+
+#sqlnavsearch input[type="text"]{
+	height: 40px;
+	width: 40%;
+	margin-bottom: 10px;
+	font-size: 24px;
+}

@@ -1,0 +1,7 @@
+This is a small, quick, dirty ColdFusion app I whipped up for searching and navigating SQL Server database code -- Stored Procedures, Triggers, and Functions. It was meant to form a set of building blocks, not necessarily to be a full application, though the example I have here does function as an app 
+
+
+NOTE: 
+This project uses the excellent SyntaxHighlighter project by Alex Gorbatchev: http://alexgorbatchev.com/SyntaxHighlighter/
+
+Please donate: http://alexgorbatchev.com/SyntaxHighlighter/donate.html

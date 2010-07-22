@@ -1,0 +1,593 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" 
+	"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>
+	alexg / SyntaxHighlighter / source &mdash; bitbucket.org
+</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="description" content="Mercurial hosting - we're here to serve." />
+	<meta name="keywords" content="mercurial,hg,hosting,bitbucket,alexg,SyntaxHighlighter,is,a,fully,functional,self-contained,code,syntax,highlighter,developed,in,JavaScript.,source,sourcecode,scripts/shBrushSql.js@9d94fe294c64" />
+	<link rel="stylesheet" type="text/css" href="http://bitbucket-assets.s3.amazonaws.com/css/layout.css" />
+    <link rel="stylesheet" type="text/css" href="http://bitbucket-assets.s3.amazonaws.com/css/screen.css" />
+	<link rel="stylesheet" type="text/css" href="http://bitbucket-assets.s3.amazonaws.com/css/print.css" media="print" />
+	<link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="Bitbucket" />
+	<link rel="icon" href="http://bitbucket-assets.s3.amazonaws.com/img/logo_new.png" type="image/png"/>
+	<script type="text/javascript">var MEDIA_URL = "http://bitbucket-assets.s3.amazonaws.com/"</script>
+	<script type="text/javascript" src="http://bitbucket-assets.s3.amazonaws.com/js/lib/bundle.020510May.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			Dropdown.init();
+			$(".tooltip").tipsy({gravity:'s'});
+		});
+	</script>
+	<noscript>
+		<style type="text/css">
+			.dropdown-container-text .dropdown {
+				position: static !important;
+			}
+		</style>
+	</noscript>
+
+	<!--[if lt IE 7]>
+	<style type="text/css">
+	body {
+		behavior: url(http://bitbucket-assets.s3.amazonaws.com/css/csshover.htc);
+	}
+	
+	#issues-issue pre {
+		white-space: normal !important;
+	}
+	
+	.changeset-description {
+		white-space: normal !important;
+	}
+	</style>
+	<script type="text/javascript"> 
+		$(document).ready(function(){ 
+			$('#header-wrapper').pngFix();
+			$('#sourcelist').pngFix();
+			$('.promo-signup-screenshot').pngFix();
+		}); 
+	</script>
+	<![endif]-->
+	
+	<link rel="stylesheet" href="http://bitbucket-assets.s3.amazonaws.com/css/highlight/trac.css" type="text/css" />
+
+	
+</head>
+<body class="">
+	<div id="main-wrapper">
+		<div id="header-wrapper">
+			<div id="header">
+				<a href="/"><img src="http://bitbucket-assets.s3.amazonaws.com/img/logo_myriad.png" alt="Bitbucket" id="header-wrapper-logo" /></a>
+				
+					<div id="header-nav">
+						<ul class="right">
+							<li><a href="/">Home</a></li>
+							<li><a href="/plans"><b>Plans &amp; Signup</b></a></li>
+							<li><a href="/repo/all">Repositories</a></li>
+							<li><a href="/news">News</a></li>
+							<li><a href="/help">Help</a></li>
+							<li><a href="/account/signin/">Sign in</a></li>
+						</ul>
+					</div>
+				
+			</div>
+		</div>
+		<div id="content-wrapper">
+			
+			
+			
+
+			
+			
+			
+	
+	
+
+
+
+
+
+	<script type="text/javascript" src="http://bitbucket-assets.s3.amazonaws.com/js/lib/jquery.cookie.js"></script> <!--REMOVE WHEN NEWER BUNDLE THAN 030309Mar -->
+	<script type="text/javascript">
+		var date = new Date();
+		date.setTime(date.getTime() + (365 * 24 * 60 * 60 * 1000));
+		var cookieoptions = { path: '/', expires: date };
+		
+		window._shard = 'bfg01-gunicorn (ID 6)';
+		
+		$(document).ready(function(){
+			$('#toggle-repo-content').click(function(){
+				$('#repo-desc-cloneinfo').toggle('fast');
+				$('#repo-menu').toggle();
+				$('#repo-menu-links-mini').toggle(100);
+				$('.repo-desc-description').toggle('fast');
+				var avatar_new_width = ($('.repo-avatar').width() == 35) ? 16 : 35;
+				$('.repo-avatar').animate({ width: avatar_new_width }, 250);
+				
+				if ($.cookie('toggle_status') == 'hide') {
+					$.cookie('toggle_status', 'show', cookieoptions);
+					$(this).css('background-image','url(http://bitbucket-assets.s3.amazonaws.com/img/repo-toggle-up.png)');
+				} else {
+					$.cookie('toggle_status', 'hide', cookieoptions);
+					$(this).css('background-image','url(http://bitbucket-assets.s3.amazonaws.com/img/repo-toggle-down.png)');
+				}
+			});
+			
+			if ($.cookie('toggle_status') == 'hide') {
+				$('#toggle-repo-content').css('background-image','url(http://bitbucket-assets.s3.amazonaws.com/img/repo-toggle-down.png)');
+				$('#repo-desc-cloneinfo').hide();
+				$('#repo-menu').hide();
+				$('#repo-menu-links-mini').show();
+				$('.repo-desc-description').hide();
+				$('.repo-avatar').css({ width: '16px' });
+			} else {
+				$('#toggle-repo-content').css('background-image','url(http://bitbucket-assets.s3.amazonaws.com/img/repo-toggle-up.png)');
+				$('#repo-desc-cloneinfo').show();
+				$('#repo-menu').show();
+				$('#repo-menu-links-mini').hide();
+				$('.repo-desc-description').show();
+				$('.repo-avatar').css({ width: '35px' });
+			}
+		});
+	</script>
+
+
+<div id="tabs">
+	<ul class="ui-tabs-nav">
+		<li>
+			<a href="/alexg/syntaxhighlighter/overview"><span>Overview</span></a>
+		</li>
+
+		<li>
+			<a href="/alexg/syntaxhighlighter/downloads"><span>Downloads (0)</span></a>
+		</li>
+		
+		
+
+		<li class="ui-tabs-selected">
+			
+				<a href="/alexg/syntaxhighlighter/src/9d94fe294c64"><span>Source</span></a>
+			
+		</li>
+		
+		<li>
+			<a href="/alexg/syntaxhighlighter/changesets"><span>Changesets</span></a>
+		</li>
+
+		
+			
+				<li class="ui-tabs-nav-issues">
+					<a href="/alexg/syntaxhighlighter/wiki"><span>Wiki</span></a>
+				</li>
+			
+		
+
+		
+			
+				<li class="ui-tabs-nav-issues">
+					<a href="/alexg/syntaxhighlighter/issues?status=new&amp;status=open"><span>Issues (64) &raquo;</span></a>
+					<ul>
+						<li><a href="/alexg/syntaxhighlighter/issues?status=new">New issues</a></li>
+						<li><a href="/alexg/syntaxhighlighter/issues?status=new&amp;status=open">Open issues</a></li>
+						<li><a href="/alexg/syntaxhighlighter/issues?status=resolved&amp;status=invalid&amp;status=duplicate">Closed issues</a></li>
+					
+						<li><a href="/alexg/syntaxhighlighter/issues">All issues</a></li>
+						<li><a href="/alexg/syntaxhighlighter/issues/query">Advanced query</a></li>
+						<li><a href="/alexg/syntaxhighlighter/issues/new">Create new issue</a></li>
+					</ul>
+				</li>
+			
+		
+				
+		
+			
+		
+		
+		<li class="tabs-right tabs-far-right">
+			<a href="/alexg/syntaxhighlighter/descendants"><span>Forks/Queues (3)</span></a>
+		</li>
+		
+		<li class="tabs-right">
+			<a href="/alexg/syntaxhighlighter/zealots"><span>Followers (41)</span></a>
+		</li>
+	</ul>
+</div>
+
+<div id="repo-menu">
+		<div id="repo-menu-links">
+			<ul>
+				<li>
+					<a href="/alexg/syntaxhighlighter/rss" class="noborder repo-menu-rss" title="RSS Feed for SyntaxHighlighter">RSS</a>
+				</li>
+				<li>
+					<a href="/alexg/syntaxhighlighter/atom" class="noborder repo-menu-atom" title="Atom Feed for SyntaxHighlighter">Atom</a>
+				</li>
+				
+				<li>
+					<a href="/alexg/syntaxhighlighter/pull" class="link-request-pull">
+						pull request
+					</a>
+				</li>
+				
+				<li><a href="/alexg/syntaxhighlighter/fork" class="link-fork">fork</a></li>
+				
+					<li><a href="/alexg/syntaxhighlighter/hack" class="link-hack">patch queue</a></li>
+				
+				<li>
+					
+						<a rel="nofollow" href="/alexg/syntaxhighlighter/follow" class="link-follow">follow</a>
+					
+				</li>
+				<li><a class="link-download">get source &raquo;</a>
+
+					<ul>
+						
+							<li><a rel="nofollow" href="/alexg/syntaxhighlighter/get/9d94fe294c64.zip" class="zip">zip</a></li>
+							<li><a rel="nofollow" href="/alexg/syntaxhighlighter/get/9d94fe294c64.gz" class="compressed">gz</a></li>
+							<li><a rel="nofollow" href="/alexg/syntaxhighlighter/get/9d94fe294c64.bz2" class="compressed">bz2</a></li>						
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<div id="repo-menu-branches-tags">
+ 			<ul>
+				<li class="icon-branches">
+					branches &raquo;
+					
+					<ul>
+					
+						<li><a href="/alexg/syntaxhighlighter/src/9d94fe294c64">default</a></li>
+					
+					</ul>
+					
+				</li>
+				<li class="icon-tags">
+					tags &raquo;
+					
+					<ul>
+					
+						<li><a href="/alexg/syntaxhighlighter/src/9d94fe294c64">tip</a></li>
+					
+						<li><a href="/alexg/syntaxhighlighter/src/a7878d677c7a">3.0.83</a></li>
+					
+						<li><a href="/alexg/syntaxhighlighter/src/3a2e3fe04d01">2.1.364</a></li>
+					
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		
+		<div class="cb"></div>
+	</div>
+	<div id="repo-desc" class="layout-box">
+		
+		
+		<div id="repo-menu-links-mini" class="right">
+			<ul>
+				<li>
+					<a href="/alexg/syntaxhighlighter/rss" class="noborder repo-menu-rss" title="RSS Feed for SyntaxHighlighter"></a>
+				</li>
+				<li>
+					<a href="/alexg/syntaxhighlighter/atom" class="noborder repo-menu-atom" title="Atom Feed for SyntaxHighlighter"></a>
+				</li>
+				
+				<li>
+					<a href="/alexg/syntaxhighlighter/pull" class="tooltip noborder link-request-pull" title="Pull request"></a>
+				</li>
+				
+				<li><a href="/alexg/syntaxhighlighter/fork" class="tooltip noborder link-fork" title="Fork"></a></li>
+				
+					<li><a href="/alexg/syntaxhighlighter/hack" class="tooltip noborder link-hack" title="Patch queue"></a></li>
+				
+				<li><a class="tooltip noborder link-download" title="Get source"></a>
+
+					<ul>
+						
+							<li><a rel="nofollow" href="/alexg/syntaxhighlighter/get/9d94fe294c64.zip" class="zip">zip</a></li>
+							<li><a rel="nofollow" href="/alexg/syntaxhighlighter/get/9d94fe294c64.gz" class="compressed">gz</a></li>
+							<li><a rel="nofollow" href="/alexg/syntaxhighlighter/get/9d94fe294c64.bz2" class="compressed">bz2</a></li>						
+						
+					</ul>
+				</li>
+			</ul>
+		</div>
+		
+		<h3>
+			<a href="/alexg">alexg</a> / 
+			<a href="/alexg/syntaxhighlighter/wiki/Home">SyntaxHighlighter</a>
+			 <span>(<a href="http://alexgorbatchev.com/">http://alexgorbatchev.com/</a>)</span>
+			
+		</h3>
+		
+		
+		
+		
+		
+		<p class="repo-desc-description">SyntaxHighlighter is a fully functional self-contained code syntax highlighter developed in JavaScript.</p>
+		
+		<div id="repo-desc-cloneinfo">Clone this repository (size: 5.8 MB): <a href="http://bitbucket.org/alexg/syntaxhighlighter" onclick="$('#clone-url-ssh').hide();$('#clone-url-https').toggle();return(false);"><small>HTTPS</small></a> / <a href="ssh://hg@bitbucket.org/alexg/syntaxhighlighter" onclick="$('#clone-url-https').hide();$('#clone-url-ssh').toggle();return(false);"><small>SSH</small></a><br/>
+		<pre id="clone-url-https">$ hg clone <a href="http://bitbucket.org/alexg/syntaxhighlighter">http://bitbucket.org/alexg/syntaxhighlighter</a></pre>
+		
+		<pre id="clone-url-ssh" style="display:none;">$ hg clone <a href="ssh://hg@bitbucket.org/alexg/syntaxhighlighter">ssh://hg@bitbucket.org/alexg/syntaxhighlighter</a></pre></div>
+		
+		<div class="cb"></div>
+		<a href="#" id="toggle-repo-content"></a>
+
+		
+
+	</div>
+
+
+			
+			
+
+
+
+
+
+<div id="source-summary" class="layout-box">
+	<div class="right">
+		<table>
+			<tr>
+				<td>commit 86:</td>
+				<td>9d94fe294c64</td>
+			</tr>
+			
+				<tr>
+					<td>parent 85:</td>
+					<td>
+						<a href="/alexg/syntaxhighlighter/changeset/fc9844329485" title="<b>Author:</b> Alex Gorbatchev<br/><b>Age:</b> 2 weeks ago<br/>Added license files." class="tooltip tooltip-ul">fc9844329485</a>
+					</td>
+				</tr>
+			
+			
+			<tr>
+				<td>branch: </td>
+				<td>default</td>
+			</tr>
+			
+				<tr>
+					<td>tags:</td>
+					<td>tip</td>
+				</tr>
+			
+		</table>
+	</div>
+
+<div class="changeset-description">Added tag 3.0.83 for changeset a7878d677c7a</div>
+	
+	<div>
+		
+			
+				
+					<img src="http://bitbucket-assets.s3.amazonaws.com/img/no_avatar.gif" class="avatar left" alt="" />
+				
+			
+		
+			<span>
+				
+					Alex Gorbatchev
+				
+				<br/>
+				<small>2 weeks ago</small>
+			</span>
+		
+	</div>
+				
+	<div class="cb"></div>
+</div>
+
+
+
+
+<div id="source-path" class="layout-box">
+	<a href="/alexg/syntaxhighlighter/src">SyntaxHighlighter</a> /
+	
+		
+			
+				<a href='/alexg/syntaxhighlighter/src/9d94fe294c64/scripts/'>
+					scripts
+				</a>
+			
+		
+		/
+	
+		
+			
+				shBrushSql.js
+			
+		
+		
+	
+</div>
+
+
+<div id="source-view" class="scroll-x">
+	<table class="info-table">
+		<tr>
+			<th>r86:9d94fe294c64</th>
+			<th>50 loc</th>
+			<th>2.6 KB</th>
+			<th class="source-view-links">
+				<a id="embed-link" href="#" onclick="makeEmbed('#embed-link', 'http://bitbucket.org/alexg/syntaxhighlighter/src/9d94fe294c64/scripts/shBrushSql.js?embed=t');">embed</a> /
+				<a href='/alexg/syntaxhighlighter/history/scripts/shBrushSql.js'>history</a> / 
+				<a href='/alexg/syntaxhighlighter/annotate/9d94fe294c64/scripts/shBrushSql.js'>annotate</a> / 
+				<a href='/alexg/syntaxhighlighter/raw/9d94fe294c64/scripts/shBrushSql.js'>raw</a> / 
+				<form action="/alexg/syntaxhighlighter/diff/scripts/shBrushSql.js" method="get" class="source-view-form">
+					
+					<input type="hidden" name="diff2" value="9d94fe294c64"/>
+						<select name="diff1" class="smaller">
+							
+								
+									<option value="a081ad0816ae">
+										r75:a081ad0816ae
+									</option>
+								
+							
+								
+									<option value="13e554f0e442">
+										r34:13e554f0e442
+									</option>
+								
+							
+						</select>
+						<input type="submit" value="diff" class="smaller"/>
+					
+				</form>
+			</th>
+		</tr>
+	</table>
+	
+		
+			<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#cl-1"> 1</a>
+<a href="#cl-2"> 2</a>
+<a href="#cl-3"> 3</a>
+<a href="#cl-4"> 4</a>
+<a href="#cl-5"> 5</a>
+<a href="#cl-6"> 6</a>
+<a href="#cl-7"> 7</a>
+<a href="#cl-8"> 8</a>
+<a href="#cl-9"> 9</a>
+<a href="#cl-10">10</a>
+<a href="#cl-11">11</a>
+<a href="#cl-12">12</a>
+<a href="#cl-13">13</a>
+<a href="#cl-14">14</a>
+<a href="#cl-15">15</a>
+<a href="#cl-16">16</a>
+<a href="#cl-17">17</a>
+<a href="#cl-18">18</a>
+<a href="#cl-19">19</a>
+<a href="#cl-20">20</a>
+<a href="#cl-21">21</a>
+<a href="#cl-22">22</a>
+<a href="#cl-23">23</a>
+<a href="#cl-24">24</a>
+<a href="#cl-25">25</a>
+<a href="#cl-26">26</a>
+<a href="#cl-27">27</a>
+<a href="#cl-28">28</a>
+<a href="#cl-29">29</a>
+<a href="#cl-30">30</a>
+<a href="#cl-31">31</a>
+<a href="#cl-32">32</a>
+<a href="#cl-33">33</a>
+<a href="#cl-34">34</a>
+<a href="#cl-35">35</a>
+<a href="#cl-36">36</a>
+<a href="#cl-37">37</a>
+<a href="#cl-38">38</a>
+<a href="#cl-39">39</a>
+<a href="#cl-40">40</a>
+<a href="#cl-41">41</a>
+<a href="#cl-42">42</a>
+<a href="#cl-43">43</a>
+<a href="#cl-44">44</a>
+<a href="#cl-45">45</a>
+<a href="#cl-46">46</a>
+<a href="#cl-47">47</a>
+<a href="#cl-48">48</a>
+<a href="#cl-49">49</a>
+</pre></div></td><td class="code"><div class="highlight"><pre><a name="cl-1"></a><span class="p">;(</span><span class="kd">function</span><span class="p">()</span>
+<a name="cl-2"></a><span class="p">{</span>
+<a name="cl-3"></a>	<span class="c1">// CommonJS</span>
+<a name="cl-4"></a>	<span class="k">typeof</span><span class="p">(</span><span class="nx">require</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">?</span> <span class="nx">SyntaxHighlighter</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">&#39;shCore&#39;</span><span class="p">).</span><span class="nx">SyntaxHighlighter</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>
+<a name="cl-5"></a>
+<a name="cl-6"></a>	<span class="kd">function</span> <span class="nx">Brush</span><span class="p">()</span>
+<a name="cl-7"></a>	<span class="p">{</span>
+<a name="cl-8"></a>		<span class="kd">var</span> <span class="nx">funcs</span>	<span class="o">=</span>	<span class="s1">&#39;abs avg case cast coalesce convert count current_timestamp &#39;</span> <span class="o">+</span>
+<a name="cl-9"></a>						<span class="s1">&#39;current_user day isnull left lower month nullif replace right &#39;</span> <span class="o">+</span>
+<a name="cl-10"></a>						<span class="s1">&#39;session_user space substring sum system_user upper user year&#39;</span><span class="p">;</span>
+<a name="cl-11"></a>
+<a name="cl-12"></a>		<span class="kd">var</span> <span class="nx">keywords</span> <span class="o">=</span>	<span class="s1">&#39;absolute action add after alter as asc at authorization begin bigint &#39;</span> <span class="o">+</span>
+<a name="cl-13"></a>						<span class="s1">&#39;binary bit by cascade char character check checkpoint close collate &#39;</span> <span class="o">+</span>
+<a name="cl-14"></a>						<span class="s1">&#39;column commit committed connect connection constraint contains continue &#39;</span> <span class="o">+</span>
+<a name="cl-15"></a>						<span class="s1">&#39;create cube current current_date current_time cursor database date &#39;</span> <span class="o">+</span>
+<a name="cl-16"></a>						<span class="s1">&#39;deallocate dec decimal declare default delete desc distinct double drop &#39;</span> <span class="o">+</span>
+<a name="cl-17"></a>						<span class="s1">&#39;dynamic else end end-exec escape except exec execute false fetch first &#39;</span> <span class="o">+</span>
+<a name="cl-18"></a>						<span class="s1">&#39;float for force foreign forward free from full function global goto grant &#39;</span> <span class="o">+</span>
+<a name="cl-19"></a>						<span class="s1">&#39;group grouping having hour ignore index inner insensitive insert instead &#39;</span> <span class="o">+</span>
+<a name="cl-20"></a>						<span class="s1">&#39;int integer intersect into is isolation key last level load local max min &#39;</span> <span class="o">+</span>
+<a name="cl-21"></a>						<span class="s1">&#39;minute modify move name national nchar next no numeric of off on only &#39;</span> <span class="o">+</span>
+<a name="cl-22"></a>						<span class="s1">&#39;open option order out output partial password precision prepare primary &#39;</span> <span class="o">+</span>
+<a name="cl-23"></a>						<span class="s1">&#39;prior privileges procedure public read real references relative repeatable &#39;</span> <span class="o">+</span>
+<a name="cl-24"></a>						<span class="s1">&#39;restrict return returns revoke rollback rollup rows rule schema scroll &#39;</span> <span class="o">+</span>
+<a name="cl-25"></a>						<span class="s1">&#39;second section select sequence serializable set size smallint static &#39;</span> <span class="o">+</span>
+<a name="cl-26"></a>						<span class="s1">&#39;statistics table temp temporary then time timestamp to top transaction &#39;</span> <span class="o">+</span>
+<a name="cl-27"></a>						<span class="s1">&#39;translation trigger true truncate uncommitted union unique update values &#39;</span> <span class="o">+</span>
+<a name="cl-28"></a>						<span class="s1">&#39;varchar varying view when where with work&#39;</span><span class="p">;</span>
+<a name="cl-29"></a>
+<a name="cl-30"></a>		<span class="kd">var</span> <span class="nx">operators</span> <span class="o">=</span>	<span class="s1">&#39;all and any between cross in join like not null or outer some&#39;</span><span class="p">;</span>
+<a name="cl-31"></a>
+<a name="cl-32"></a>		<span class="k">this</span><span class="p">.</span><span class="nx">regexList</span> <span class="o">=</span> <span class="p">[</span>
+<a name="cl-33"></a>			<span class="p">{</span> <span class="nx">regex</span><span class="o">:</span> <span class="sr">/--(.*)$/gm</span><span class="p">,</span>												<span class="nx">css</span><span class="o">:</span> <span class="s1">&#39;comments&#39;</span> <span class="p">},</span>			<span class="c1">// one line and multiline comments</span>
+<a name="cl-34"></a>			<span class="p">{</span> <span class="nx">regex</span><span class="o">:</span> <span class="nx">SyntaxHighlighter</span><span class="p">.</span><span class="nx">regexLib</span><span class="p">.</span><span class="nx">multiLineDoubleQuotedString</span><span class="p">,</span>	<span class="nx">css</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span> <span class="p">},</span>			<span class="c1">// double quoted strings</span>
+<a name="cl-35"></a>			<span class="p">{</span> <span class="nx">regex</span><span class="o">:</span> <span class="nx">SyntaxHighlighter</span><span class="p">.</span><span class="nx">regexLib</span><span class="p">.</span><span class="nx">multiLineSingleQuotedString</span><span class="p">,</span>	<span class="nx">css</span><span class="o">:</span> <span class="s1">&#39;string&#39;</span> <span class="p">},</span>			<span class="c1">// single quoted strings</span>
+<a name="cl-36"></a>			<span class="p">{</span> <span class="nx">regex</span><span class="o">:</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getKeywords</span><span class="p">(</span><span class="nx">funcs</span><span class="p">),</span> <span class="s1">&#39;gmi&#39;</span><span class="p">),</span>				<span class="nx">css</span><span class="o">:</span> <span class="s1">&#39;color2&#39;</span> <span class="p">},</span>			<span class="c1">// functions</span>
+<a name="cl-37"></a>			<span class="p">{</span> <span class="nx">regex</span><span class="o">:</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getKeywords</span><span class="p">(</span><span class="nx">operators</span><span class="p">),</span> <span class="s1">&#39;gmi&#39;</span><span class="p">),</span>			<span class="nx">css</span><span class="o">:</span> <span class="s1">&#39;color1&#39;</span> <span class="p">},</span>			<span class="c1">// operators and such</span>
+<a name="cl-38"></a>			<span class="p">{</span> <span class="nx">regex</span><span class="o">:</span> <span class="k">new</span> <span class="nb">RegExp</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">getKeywords</span><span class="p">(</span><span class="nx">keywords</span><span class="p">),</span> <span class="s1">&#39;gmi&#39;</span><span class="p">),</span>				<span class="nx">css</span><span class="o">:</span> <span class="s1">&#39;keyword&#39;</span> <span class="p">}</span>			<span class="c1">// keyword</span>
+<a name="cl-39"></a>			<span class="p">];</span>
+<a name="cl-40"></a>	<span class="p">};</span>
+<a name="cl-41"></a>
+<a name="cl-42"></a>	<span class="nx">Brush</span><span class="p">.</span><span class="nx">prototype</span>	<span class="o">=</span> <span class="k">new</span> <span class="nx">SyntaxHighlighter</span><span class="p">.</span><span class="nx">Highlighter</span><span class="p">();</span>
+<a name="cl-43"></a>	<span class="nx">Brush</span><span class="p">.</span><span class="nx">aliases</span>	<span class="o">=</span> <span class="p">[</span><span class="s1">&#39;sql&#39;</span><span class="p">];</span>
+<a name="cl-44"></a>
+<a name="cl-45"></a>	<span class="nx">SyntaxHighlighter</span><span class="p">.</span><span class="nx">brushes</span><span class="p">.</span><span class="nx">Sql</span> <span class="o">=</span> <span class="nx">Brush</span><span class="p">;</span>
+<a name="cl-46"></a>
+<a name="cl-47"></a>	<span class="c1">// CommonJS</span>
+<a name="cl-48"></a>	<span class="k">typeof</span><span class="p">(</span><span class="nx">exports</span><span class="p">)</span> <span class="o">!=</span> <span class="s1">&#39;undefined&#39;</span> <span class="o">?</span> <span class="nx">exports</span><span class="p">.</span><span class="nx">Brush</span> <span class="o">=</span> <span class="nx">Brush</span> <span class="o">:</span> <span class="kc">null</span><span class="p">;</span>
+<a name="cl-49"></a><span class="p">})();</span>
+</pre></div>
+</td></tr></table>
+		
+	
+</div>
+
+
+
+			<div class="cb"></div>
+		</div>
+		<div class="cb footer-placeholder"></div>
+	</div>
+	<div id="footer-wrapper">
+		<div id="footer">
+			<a href="/site/terms/">TOS</a> | <a href="/site/privacy/">Privacy Policy</a> | <a href="http://blog.bitbucket.org/">Blog</a> | <a href="http://bitbucket.org/jespern/bitbucket/issues/new/">Report Bug</a> | <a href="http://groups.google.com/group/bitbucket-users">Discuss</a> | <a href="http://avantlumiere.com/">&copy; 2008-2010</a>
+			| We run <small><b>
+				<a href="http://www.djangoproject.com/">Django 1.2.1</a> / 
+				<a href="http://bitbucket.org/jespern/django-piston/">Piston 0.2.3rc1</a> / 
+				<a href="http://www.selenic.com/mercurial/">Hg 1.3.1</a> / 
+				<a href="http://www.python.org">Python 2.7.0</a> /
+				r3098| bfg01
+			</b></small>
+		</div>
+	</div>
+	
+    	<script type="text/javascript">
+    	  var _gaq = _gaq || [];
+    	  _gaq.push(['_setAccount', 'UA-2456069-3'], ['_trackPageview']);
+    	
+    	  /* User specified tracking. */
+    	  var _gaq = _gaq || [];
+    	  _gaq.push(['repo._setAccount', 'UA-83229-13'], ['repo._trackPageview']);
+    	
+    	  var _gaq = _gaq || [];
+    	  _gaq.push(['atl._setAccount', 'UA-6032469-33'], ['atl._trackPageview']);
+    	  (function() {
+    	    var ga = document.createElement('script');
+    	    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 
+    	        'http://www') + '.google-analytics.com/ga.js';
+    	    ga.setAttribute('async', 'true');
+    	    document.documentElement.firstChild.appendChild(ga);
+    	  })();
+    	</script>
+	
+</body>
+</html>
